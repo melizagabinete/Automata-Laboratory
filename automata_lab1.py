@@ -24,13 +24,25 @@ def check_string(s, choice):
     else:
         return "Try again."
 
+def display_sets():
+    print("\nNo 1:")
+    print("  Accepted:", accepted_no1)
+    print("  Rejected:", rejected_no1)
+    print("\nNo2:")
+    print("  Accepted:", accepted_no2)
+    print("  Rejected:", rejected_no2)
+    print()
+
 if __name__ == "__main__":
     while True:
-        choice = input("Choose no to answer (1 or 2), or 'x' to quit: ").strip()
-        if choice.lower() == 'x':
+        choice = input("Choose no to answer (1 or 2), 'd' to display accepted/rejected, or 'x' to quit: ").strip().lower()
+        if choice == 'x':
             break
+        if choice == 'd':
+            display_sets()
+            continue
         if choice not in ("1", "2"):
-            print("Invalid choice. Please enter 1, 2, or x.")
+            print("Invalid choice. Please enter 1, 2, d, or x.")
             continue
         user_input = input("Enter your string: ").strip()
         result = check_string(user_input, choice)
